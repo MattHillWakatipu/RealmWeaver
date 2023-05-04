@@ -6,13 +6,16 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-message = "test"
+query = "test"
 
 completion = openai.ChatCompletion.create(
-  model="gpt-4",
+  model="gpt-3.5-turbo",
   messages=[
-    {"role": "user", "content": message}
+    {"role": "user", "content": query}
   ]
 )
 
-print(completion.choices[0].message.content)
+response = completion.choices[0].message.content
+
+print(f'Query: {query}')
+print(f'Response: {response}')
