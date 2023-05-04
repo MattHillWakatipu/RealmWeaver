@@ -4,8 +4,7 @@ import weaviate
 from dotenv import load_dotenv
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
-weaviate_api_key = os.getenv('weaviate_api_key')
-COMPLETIONS_MODEL = 'text-davinci-003'
+COMPLETION_MODEL = 'text-davinci-003'
 EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
@@ -39,6 +38,17 @@ def main():
     store_response(response)
 
 
+def create_weaviate_client():
+    return weaviate.Client(
+        url='https://realm-weaver-f5qsqrbe.weaviate.network',
+        auth_client_secret=weaviate.auth.AuthApiKey(api_key=os.getenv('WEAVIATE_API_KEY')),
+        additional_headers={
+            "X-OpenAI-Api-Key": os.getenv('openai_api_key')
+        }
+    )
+
+
 if __name__ == '__main__':
     load_dotenv()
+    weaviate_client = create_weaviate_client()
     main()
