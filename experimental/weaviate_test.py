@@ -14,45 +14,46 @@ client = weaviate.Client(
     }
 )
 
+# # delete class "YourClassName" - THIS WILL DELETE ALL DATA IN THIS CLASS
+# client.schema.delete_class("Question")  # Replace with your class name - e.g. "Question"
+
 # class_obj = {
-#     "class": "Question",
+#     "class": "Lore",
 #     "vectorizer": "text2vec-openai"  # Or "text2vec-cohere" or "text2vec-huggingface"
 # }
 #
 # client.schema.create_class(class_obj)
 
 # # ===== import data =====
-# # Load data
-# import requests
-# url = 'https://raw.githubusercontent.com/weaviate-tutorials/quickstart/main/data/jeopardy_tiny.json'
-# resp = requests.get(url)
-# data = json.loads(resp.text)
+# # Load data and Configure a batch process
+# with open('world/test.json', mode='r') as file, client.batch as batch:
+#     data = json.load(file)
+#     print(data)
 #
-# # Configure a batch process
-# with client.batch as batch:
 #     batch.batch_size = 100
 #     # Batch import all Questions
 #     for i, d in enumerate(data):
 #         print(f"importing question: {i + 1}")
 #
 #         properties = {
-#             "answer": d["Answer"],
-#             "question": d["Question"],
+#             "lore": d["Lore"],
 #             "category": d["Category"],
 #         }
 #
-#         client.batch.add_data_object(properties, "Question")
+#         client.batch.add_data_object(properties, "Lore")
 
-# print(client.query.aggregate('Question').with_meta_count().do())
 
-nearText = {"concepts": ["biology"]}
+# print(client.query.aggregate('Lore').with_meta_count().do())
 
-result = (
-    client.query
-    .get("Question", ["question", "answer", "category"])
-    .with_near_text(nearText)
-    .with_limit(2)
-    .do()
-)
 
-print(json.dumps(result, indent=4))
+# nearText = {"concepts": ["politics"]}
+#
+# result = (
+#     client.query
+#     .get("Lore", ["lore", "category"])
+#     .with_near_text(nearText)
+#     .with_limit(2)
+#     .do()
+# )
+#
+# print(json.dumps(result, indent=4))
