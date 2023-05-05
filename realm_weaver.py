@@ -11,6 +11,8 @@ def fetch_related():
     # TODO make this dynamic
     near_text = {'concepts': ['Cities']}
 
+    # with weaviate_client.query as query:
+
     response = (
         weaviate_client.query
         .get('Lore', ['lore', 'category'])
@@ -29,7 +31,30 @@ def fetch_related():
 
 
 def store_response(response):
-    pass
+    formatted = format_response(response)
+
+    print(f'formatted: {formatted}')
+
+    with weaviate_client.batch as batch:
+        batch.add_data_object(formatted, 'Lore')
+
+
+def format_response(lore):
+    query = 'Assign a Category to this Worldbuilding text: eg.(Cities, Regions, Culture etc.)\n' + lore
+
+    completion = openai.ChatCompletion.create(
+        model=COMPLETION_MODEL,
+        messages=[
+            {"role": "user", "content": query}
+        ]
+    )
+
+    category = completion.choices[0].message.content
+
+    formatted = {"category": category,
+                 "lore": lore}
+
+    return formatted
 
 
 def main():

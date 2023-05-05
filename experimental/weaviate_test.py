@@ -46,14 +46,14 @@ client = weaviate.Client(
 # print(client.query.aggregate('Lore').with_meta_count().do())
 
 
-# nearText = {"concepts": ["politics"]}
-#
-# result = (
-#     client.query
-#     .get("Lore", ["lore", "category"])
-#     .with_near_text(nearText)
-#     .with_limit(2)
-#     .do()
-# )
-#
-# print(json.dumps(result, indent=4))
+nearText = {"concepts": ["Hiawhiti"]}
+
+result = (
+    client.query
+    .get("Lore", ["lore", "category"])
+    .with_near_text(nearText)
+    .with_limit(2)
+    .do()
+)
+
+print(json.dumps(result, indent=4))
