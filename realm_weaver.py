@@ -7,11 +7,23 @@ COMPLETION_MODEL = 'gpt-4'
 EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
-def fetch_related():
-    # TODO make this dynamic
-    near_text = {'concepts': ['Cities']}
+def fetch_related(user_string):
+    query = 'In one sentence provide a category of background knowledge ' \
+            'that would be beneficial for the following worldbuilding query:\n' \
+            + user_string
 
-    # with weaviate_client.query as query:
+    completion = openai.ChatCompletion.create(
+        model=COMPLETION_MODEL,
+        messages=[
+            {"role": "user", "content": query}
+        ]
+    )
+
+    concepts = completion.choices[0].message.content
+
+    print(f'conecpts: {concepts}')
+
+    near_text = {'concepts': concepts}
 
     response = (
         weaviate_client.query
@@ -58,18 +70,20 @@ def format_response(lore):
 
 
 def main():
+    user_string = 'create an important historical event for me.'
+
     header = 'Background:\n' \
              'I am doing some worldbuilding for a fantasy novel.\n' \
              'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
              '************\n'
 
-    input = 'Instructions:\n' \
-            'In one paragraph create a political leader for me.\n' \
-            '************\n'
+    instructions = 'Instructions:\n' \
+                   f'In one paragraph {user_string}\n' \
+                   '************\n'
 
-    context = fetch_related()
+    context = fetch_related(user_string)
 
-    query = header + input + context
+    query = header + instructions + context
 
     completion = openai.ChatCompletion.create(
         model=COMPLETION_MODEL,
@@ -102,7 +116,7 @@ if __name__ == '__main__':
 
     # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
     #  Doesn't occur in weaviate_test.py, could be because that is a script with no function calls but not sure.
-    #  Doesn't seem very critical anyway.
+    #  Doesn't seem very critical anyway as this will only be done once.
     weaviate_client = create_weaviate_client()
 
     main()
