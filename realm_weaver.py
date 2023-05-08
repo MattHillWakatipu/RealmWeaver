@@ -7,11 +7,12 @@ COMPLETION_MODEL = 'gpt-4'
 EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
-def fetch_related(user_string):
+def fetch_related(user_string, n=2):
     """
     Fetch N-nearest lore snippets to the input user string
 
     :param user_string:     The user's input string.
+    :param n:               The number of lore snippets to add, defaults to 2.
     :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
     """
     query = 'In one sentence provide a category of background knowledge ' \
@@ -35,15 +36,15 @@ def fetch_related(user_string):
         weaviate_client.query
         .get('Lore', ['lore', 'category'])
         .with_near_text(near_text)
-        .with_limit(2)
+        .with_limit(n)
         .do()
     )
 
     result = 'Context:\n'
 
     # Extract information from response
-    result += response['data']['Get']['Lore'][0]['lore'] + '\n'
-    result += response['data']['Get']['Lore'][1]['lore']
+    for i in range(n):
+        result += response['data']['Get']['Lore'][i]['lore'] + '\n'
 
     return result
 
