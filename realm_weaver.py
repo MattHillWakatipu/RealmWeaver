@@ -71,8 +71,10 @@ def format_response(lore):
     :param lore:    The input lore snipppet.
     :return:        A lore snippet formatted as a dictionary, ready to be saved to Weaviate.
     """
+    # Query to categorize the lore snippet
     query = 'Assign a Category to this Worldbuilding text: eg.(Cities, Regions, Culture etc.)\n' + lore
 
+    # Query the model
     completion = openai.ChatCompletion.create(
         model=COMPLETION_MODEL,
         messages=[
@@ -82,6 +84,7 @@ def format_response(lore):
 
     category = completion.choices[0].message.content
 
+    # Formatted as a Dictionary to store
     formatted = {"category": category,
                  "lore": lore}
 
@@ -89,8 +92,11 @@ def format_response(lore):
 
 
 def main():
+    # TODO dynamic input from user
     user_string = 'create an important historical event for me.'
 
+    # The worldbuilding header
+    # TODO this should be defined somewhere during an initialisation process and should probably not change per project.
     header = 'Background:\n' \
              'I am doing some worldbuilding for a fantasy novel.\n' \
              'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
@@ -100,10 +106,13 @@ def main():
                    f'In one paragraph {user_string}\n' \
                    '************\n'
 
+    # Get releated context based on the users input string
     context = fetch_related(user_string)
 
+    # Construct the final query based on the Header, Instructions and Weaviate related context
     query = header + instructions + context
 
+    # Query the model
     completion = openai.ChatCompletion.create(
         model=COMPLETION_MODEL,
         messages=[
@@ -116,6 +125,7 @@ def main():
     print(f'Query: {query}')
     print(f'Response: {response}')
 
+    # Store the response in Weaviate cluster
     store_response(response)
 
 
