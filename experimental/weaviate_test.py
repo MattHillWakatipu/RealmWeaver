@@ -10,7 +10,7 @@ client = weaviate.Client(
     url='https://realm-weaver-f5qsqrbe.weaviate.network',
     auth_client_secret=weaviate.auth.AuthApiKey(api_key=os.getenv('WEAVIATE_API_KEY')),
     additional_headers={
-        "X-OpenAI-Api-Key": os.getenv('openai_api_key')
+        "X-OpenAI-Api-Key": os.getenv('OPENAI_API_KEY')
     }
 )
 

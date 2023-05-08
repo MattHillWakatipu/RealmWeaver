@@ -8,6 +8,12 @@ EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
 def fetch_related(user_string):
+    """
+    Fetch N-nearest lore snippets to the input user string
+
+    :param user_string:     The user's input string.
+    :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
+    """
     query = 'In one sentence provide a category of background knowledge ' \
             'that would be beneficial for the following worldbuilding query:\n' \
             + user_string
@@ -21,7 +27,7 @@ def fetch_related(user_string):
 
     concepts = completion.choices[0].message.content
 
-    print(f'conecpts: {concepts}')
+    print(f'concepts: {concepts}')
 
     near_text = {'concepts': concepts}
 
@@ -43,6 +49,12 @@ def fetch_related(user_string):
 
 
 def store_response(response):
+    """
+    Store the Model's response in the Weaviate Cluster.
+
+    :param response:    The Model response to store.
+    :return:            None.
+    """
     formatted = format_response(response)
 
     print(f'formatted: {formatted}')
@@ -52,6 +64,12 @@ def store_response(response):
 
 
 def format_response(lore):
+    """
+    Format a Lore object, assigns a category for the lore with GPT-4.
+
+    :param lore:    The input lore snipppet.
+    :return:        A lore snippet formatted as a dictionary, ready to be saved to Weaviate.
+    """
     query = 'Assign a Category to this Worldbuilding text: eg.(Cities, Regions, Culture etc.)\n' + lore
 
     completion = openai.ChatCompletion.create(
@@ -101,11 +119,16 @@ def main():
 
 
 def create_weaviate_client():
+    """
+    Create a Weaviate client.
+
+    :return:    The Weaviate client.
+    """
     return weaviate.Client(
         url='https://realm-weaver-f5qsqrbe.weaviate.network',
         auth_client_secret=weaviate.auth.AuthApiKey(api_key=os.getenv('WEAVIATE_API_KEY')),
         additional_headers={
-            'X-OpenAI-Api-Key': os.getenv('openai_api_key')
+            'X-OpenAI-Api-Key': os.getenv('OPENAI_API_KEY')
         }
     )
 
