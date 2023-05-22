@@ -21,7 +21,7 @@ def fetch_related(user_string):
 
     concepts = completion.choices[0].message.content
 
-    print(f'conecpts: {concepts}')
+    print(f'concepts: {concepts}')
 
     near_text = {'concepts': concepts}
 
@@ -102,7 +102,7 @@ def main():
 
 def create_weaviate_client():
     return weaviate.Client(
-        url='https://realm-weaver-f5qsqrbe.weaviate.network',
+        url=os.getenv('WEAVIATE_URL'),
         auth_client_secret=weaviate.auth.AuthApiKey(api_key=os.getenv('WEAVIATE_API_KEY')),
         additional_headers={
             'X-OpenAI-Api-Key': os.getenv('openai_api_key')
@@ -115,7 +115,7 @@ if __name__ == '__main__':
     openai.api_key = os.getenv('OPENAI_API_KEY')
 
     # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
-    #  Doesn't occur in weaviate_test.py, could be because that is a script with no function calls but not sure.
+    #  Doesn't occur in weaviate_setup.py, could be because that is a script with no function calls but not sure.
     #  Doesn't seem very critical anyway as this will only be done once.
     weaviate_client = create_weaviate_client()
 
