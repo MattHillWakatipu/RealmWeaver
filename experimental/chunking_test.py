@@ -1,15 +1,14 @@
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
 
-with open('world/background.txt', 'r') as file:
+with open('world/the_blade_itself.txt', 'r', encoding='utf8') as file:
     background = file.read()
-    print(background)
 
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=512,
+        chunk_size=1024,
         chunk_overlap=20
     )
 
-    docs = text_splitter.create_documents([background])
-
-    for document in docs:
-        print(f'This is a document \n{document.page_content}\n******\n\n')
+    texts = text_splitter.split_text(background)
+    for text in texts:
+        print(f'{text}\n******')
+    print(len(texts))
