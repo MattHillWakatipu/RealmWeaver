@@ -63,7 +63,8 @@ def construct_background_prompt(user_string):
     )
 
     background_info = completion.choices[0].message.content
-    logging.info(f'Background information prompt constructed.\n{background_info}')
+    logging.info(f'Background information prompt constructed.')
+    logging.info(f'Prompt: {background_info}')
     return background_info
 
 
@@ -74,37 +75,43 @@ def store_response(response):
     :param response:    The Model response to store.
     :return:            None.
     """
+    # TODO chunk response
+
     formatted = format_response(response)
 
-    print(f'formatted: {formatted}')
-
+    logging.info('Storing Lore object in Weaviate Cluster...')
     with weaviate_client.batch as batch:
         batch.add_data_object(formatted, 'Lore')
+        logging.info('Successfully stored Lore object in Weaviate Cluster.')
 
 
 def format_response(lore):
     """
     Format a Lore object, assigns a category for the lore with GPT-4.
 
-    :param lore:    The input lore snipppet.
+    :param lore:    The input lore snippet.
     :return:        A lore snippet formatted as a dictionary, ready to be saved to Weaviate.
     """
     # Query to categorize the lore snippet
+    # TODO adding more categories to examples could be beneficial
     query = 'Assign a Category to this Worldbuilding text: eg.(Cities, Regions, Culture etc.)\n' + lore
 
     # Query the model
+    logging.info('Assigning a category to response...')
     completion = openai.ChatCompletion.create(
         model=COMPLETION_MODEL,
         messages=[
             {"role": "user", "content": query}
         ]
     )
-
     category = completion.choices[0].message.content
+    logging.info('Category assigned to response.')
+    logging.info(f'Category: {category}')
 
     # Formatted as a Dictionary to store
     formatted = {"category": category,
                  "lore": lore}
+    logging.debug(f'formatted: {formatted}')
 
     return formatted
 
