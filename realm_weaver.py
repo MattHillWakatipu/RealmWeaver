@@ -116,7 +116,7 @@ def main():
              'I am doing some worldbuilding for a fantasy novel.\n' \
              'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
              '************\n'
-    logging.debug(f'Worldbuilding header: {header}')
+    logging.debug(f'Worldbuilding header:\n{header}')
 
     # TODO dynamic input from user
     user_string = 'Create an important historical event for me.'
@@ -131,18 +131,20 @@ def main():
 
     # Construct the final query based on the Header, Instructions and Weaviate related context
     query = header + instructions + context
+    logging.debug(f'Full query to GPT-4:\n')
 
     # Query the model
+    logging.info('Querying GPT-4 with additional context from Weaviate...')
     completion = openai.ChatCompletion.create(
         model=COMPLETION_MODEL,
         messages=[
             {"role": "user", "content": query}
         ]
     )
-
+    logging.info(f'Response received from GPT-4.')
     response = completion.choices[0].message.content
 
-    print(f'Query: {query}')
+    # TODO Send response to user, and get user input of whether to save or not
     print(f'Response: {response}')
 
     # Store the response in Weaviate cluster
