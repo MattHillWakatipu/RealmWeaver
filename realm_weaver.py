@@ -1,3 +1,4 @@
+import logging
 import os
 import openai
 import weaviate
@@ -135,18 +136,25 @@ def create_weaviate_client():
 
     :return:    The Weaviate client.
     """
-    return weaviate.Client(
+    logging.info('Creating Weaviate client...')
+    client = weaviate.Client(
         url=os.getenv('WEAVIATE_URL'),
         auth_client_secret=weaviate.auth.AuthApiKey(api_key=os.getenv('WEAVIATE_API_KEY')),
         additional_headers={
             'X-OpenAI-Api-Key': os.getenv('OPENAI_API_KEY')
         }
     )
+    logging.info('Successfully created Weaviate client.')
+    return client
 
 
 if __name__ == '__main__':
     load_dotenv()
     openai.api_key = os.getenv('OPENAI_API_KEY')
+
+    # Configure logging
+    logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s - %(levelname)s - %(message)s')
 
     # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
     #  Doesn't occur in weaviate_setup.py, could be because that is a script with no function calls but not sure.
