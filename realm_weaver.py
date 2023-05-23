@@ -16,20 +16,7 @@ def fetch_related(user_string, n=2):
     :param n:               The number of lore snippets to add, defaults to 2.
     :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
     """
-    query = 'In one sentence provide a category of background knowledge ' \
-            'that would be beneficial for the following worldbuilding query:\n' \
-            + user_string
-
-    completion = openai.ChatCompletion.create(
-        model=COMPLETION_MODEL,
-        messages=[
-            {"role": "user", "content": query}
-        ]
-    )
-
-    concepts = completion.choices[0].message.content
-
-    print(f'concepts: {concepts}')
+    concepts = construct_background_prompt(user_string)
 
     near_text = {'concepts': concepts}
 
@@ -48,6 +35,34 @@ def fetch_related(user_string, n=2):
         result += response['data']['Get']['Lore'][i]['lore'] + '\n'
 
     return result
+
+
+def construct_background_prompt(user_string):
+    """
+    TODO
+
+    :param user_string: TODO
+    :return: TODO
+    """
+    # TODO work out which one to use
+    # query = 'In one sentence provide a category of background knowledge ' \
+    #         'that would be beneficial for the following worldbuilding query:\n' \
+    #         + user_string
+    query = 'In one sentence construct a list of five or fewer topics ' \
+            'that would be beneficial for the following worldbuilding query:\n' \
+            + user_string
+
+    logging.info('Constructing background information prompt...')
+    completion = openai.ChatCompletion.create(
+        model=COMPLETION_MODEL,
+        messages=[
+            {"role": "user", "content": query}
+        ]
+    )
+
+    background_info = completion.choices[0].message.content
+    logging.info(f'Background information prompt constructed.\n{background_info}')
+    return background_info
 
 
 def store_response(response):
