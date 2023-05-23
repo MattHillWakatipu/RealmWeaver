@@ -4,7 +4,7 @@ import openai
 import weaviate
 from dotenv import load_dotenv
 
-COMPLETION_MODEL = 'gpt-4'
+COMPLETION_MODEL = 'gpt-3.5-turbo'
 EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
@@ -16,24 +16,26 @@ def fetch_related(user_string, n=2):
     :param n:               The number of lore snippets to add, defaults to 2.
     :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
     """
-    concepts = construct_background_prompt(user_string)
+    # Construct a list of topics to enhance linking
+    concepts = {'concepts': construct_background_prompt(user_string)}
 
-    near_text = {'concepts': concepts}
-
+    # Fetch related items from Weaviate
+    logging.info(f'Fetching {n} closest related items from Weaviate...')
     response = (
         weaviate_client.query
         .get('Lore', ['lore', 'category'])
-        .with_near_text(near_text)
+        .with_near_text(concepts)
         .with_limit(n)
         .do()
     )
+    logging.info('Retrieved related content from Weaviate.')
 
+    # Extract information from response and construct result
     result = 'Context:\n'
-
-    # Extract information from response
     for i in range(n):
         result += response['data']['Get']['Lore'][i]['lore'] + '\n'
 
+    logging.debug(f'{n} closest items retrieved from Weaviate:\n{result}')
     return result
 
 
@@ -108,18 +110,20 @@ def format_response(lore):
 
 
 def main():
-    # TODO dynamic input from user
-    user_string = 'create an important historical event for me.'
-
     # The worldbuilding header
     # TODO this should be defined somewhere during an initialisation process and should probably not change per project.
     header = 'Background:\n' \
              'I am doing some worldbuilding for a fantasy novel.\n' \
              'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
              '************\n'
+    logging.debug(f'Worldbuilding header: {header}')
+
+    # TODO dynamic input from user
+    user_string = 'Create an important historical event for me.'
+    logging.info(f'User input string: {user_string}')
 
     instructions = 'Instructions:\n' \
-                   f'In one paragraph {user_string}\n' \
+                   f'{user_string}\n' \
                    '************\n'
 
     # Get releated context based on the users input string
