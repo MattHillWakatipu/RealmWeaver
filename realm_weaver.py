@@ -32,7 +32,7 @@ def fetch_related(user_string, n=2):
     logging.info('Retrieved related content from Weaviate.')
 
     # Extract information from response and construct result
-    result = 'Context:\n'
+    result = ''
     for i in range(n):
         result += response['data']['Get']['Lore'][i]['lore'] + '\n'
 
@@ -162,11 +162,15 @@ def main():
     logging.info(f'User input string: {user_string}')
 
     instructions = 'Instructions:\n' \
+                   'Using the following background as either example or ' \
+                   'by directly linking to it, complete the following instruction.\n' \
                    f'{user_string}\n' \
                    '************\n'
 
-    # Get releated context based on the users input string
-    context = fetch_related(user_string)
+    # Get related context based on the users input string
+    context = 'Background:\n' \
+              f'{fetch_related(user_string)}' \
+              f'************\n'
 
     # Construct the final query based on the Header, Instructions and Weaviate related context
     query = header + instructions + context
@@ -213,7 +217,7 @@ if __name__ == '__main__':
     openai.api_key = os.getenv('OPENAI_API_KEY')
 
     # Configure logging
-    logging.basicConfig(level=logging.INFO,
+    logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s - %(levelname)s - %(message)s')
 
     # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
