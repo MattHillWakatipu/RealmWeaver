@@ -9,10 +9,11 @@ COMPLETION_MODEL = 'gpt-4'
 EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
-def fetch_related(user_string, n=2):
+def fetch_related(weaviate_client, user_string, n=2):
     """
     Fetch N-nearest lore snippets to the input user string
 
+    :param weaviate_client:
     :param user_string:     The user's input string.
     :param n:               The number of lore snippets to add, defaults to 2.
     :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
@@ -91,10 +92,11 @@ def chunk_response(response):
     return texts
 
 
-def store_response(response):
+def store_response(weaviate_client, response):
     """
     Store the Model's response in the Weaviate Cluster.
 
+    :param weaviate_client:
     :param response:    The Model response to store.
     :return:            None.
     """
@@ -148,7 +150,19 @@ def format_response(lore, count):
     return formatted
 
 
-def main():
+def main(user_string='Create an important historical event for me.'):
+    load_dotenv()
+    openai.api_key = os.getenv('OPENAI_API_KEY')
+
+    # Configure logging
+    logging.basicConfig(level=logging.DEBUG,
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+
+    # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
+    #  Doesn't occur in weaviate_setup.py, could be because that is a script with no function calls but not sure.
+    #  Doesn't seem very critical anyway as this will only be done once.
+    weaviate_client = create_weaviate_client()
+
     # The worldbuilding header
     # TODO this should be defined somewhere during an initialisation process and should probably not change per project.
     header = 'Background:\n' \
@@ -158,7 +172,7 @@ def main():
     logging.debug(f'Worldbuilding header:\n{header}')
 
     # TODO dynamic input from user
-    user_string = 'Create an important historical event for me.'
+
     logging.info(f'User input string: {user_string}')
 
     instructions = 'Instructions:\n' \
@@ -169,7 +183,7 @@ def main():
 
     # Get related context based on the users input string
     context = 'Background:\n' \
-              f'{fetch_related(user_string)}' \
+              f'{fetch_related(weaviate_client, user_string)}' \
               f'************\n'
 
     # Construct the final query based on the Header, Instructions and Weaviate related context
@@ -191,7 +205,9 @@ def main():
     print(f'Response: {response}')
 
     # Store the response in Weaviate cluster
-    store_response(response)
+    store_response(weaviate_client, response)
+
+    return response
 
 
 def create_weaviate_client():
@@ -213,16 +229,4 @@ def create_weaviate_client():
 
 
 if __name__ == '__main__':
-    load_dotenv()
-    openai.api_key = os.getenv('OPENAI_API_KEY')
-
-    # Configure logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s - %(levelname)s - %(message)s')
-
-    # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
-    #  Doesn't occur in weaviate_setup.py, could be because that is a script with no function calls but not sure.
-    #  Doesn't seem very critical anyway as this will only be done once.
-    weaviate_client = create_weaviate_client()
-
     main()

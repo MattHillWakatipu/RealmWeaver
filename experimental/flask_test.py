@@ -14,7 +14,7 @@ def home():
 @app.route("/get")
 def get_bot_response():
     user_text = request.args.get('msg')
-    response = realm_weaver.construct_background_prompt(user_text)
+    response = realm_weaver.main(user_text)
     return response
 
 
