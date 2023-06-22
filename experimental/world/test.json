@@ -1,34 +1,150 @@
 [
   {
+    "Category": "Regions",
+    "Lore": "Province: Crownlands\nCapital: Albany\nLeader(s): King Edgar Kenmure\n\nThe Crownlands make a fine place to live for those in specialist trades, such as glassblowers, cartographers, jewelers, or luthiers. It makes an even finer place to live for the upper echelons who enjoy the fruits of these labours. Albany, the largest city on the continent, is the seat of the royal family; it is also home to such notable orders as the Alchemists Alliance, the Children of Mara, and the Order of the Magisterium. The extensive military presence might at times seem at odds with the graceful elven architecture seen across the Crownlands, but the Alban citizens are grateful for the added security  - the tales of pirate raids, harpy incursions, and guerilla attacks by the vile Fens and their beasts seem a lifetime away."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Alberton\nCapital: Bastille\nLeader(s): Duke Louis d'Albert\n\nMany claim the Kingdom of Alba could not have been built without the coal, gold, and iron of Alberton. Founded on ideas of discipline, determination, and ambition this industrial epicentre is one of the wealthiest regions of Ao Mārama. The talented smiths of Bastille see Duke d'Albert's army outfitted in the highest quality arms and armour. It seems the only place one can escape the frequent misting rains and choking smog is deep within the mines nestled in the base of the Breakers. Journeying to the peaks of this jagged, grey mountain range will bring you to the Wuxian Temple, where monks not only hone their skills but also act as an additional buffer against harpy raids on the westernmost fishing villages. Duke d'Albert takes great pride in knowing that, unlike those in the \"Free Cities\", his smaller fishing hamlets would never swear fealty to pirate scum."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: The Free Cities of Anvil\nCapital: Anvil\nLeader(s): Captain Irene Blackbough\n\nPlayground of merchants and thieves alike, the many fishing townships surrounding Anvil have fallen under pirate control. The population of this pirate haven is richly diverse, with fighters, mercenaries, smugglers and more travelling from the ice floes of the south, the island nations of the west, and the Empire of the east. In the market for exotic goods and rarities? Silks, wines, and spices? Maybe you are looking for more illicit goods, or you simply need your ship repaired. If you can handle the howling winds and hardened, cutthroat citizens, there is many an adventure to be had in the Free Cities. Honour amongst thieves is the creed of Anvil, and bravery, strength, and independence will get you far."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Buinn Llèith\nCapital: Dùn Èideann\nLeader(s): Count Duncan Kenmure\n\nThe forgotten middle child of the Kingdom of Alba, Buinn Llèith doesn't have a particular specialization. Instead this humble and stable region tends to be a jack of all trades. With an ample supply of wheat, barley, hops and it's well tended animals, this hard working region supplements the supply of grains, beer and dairy to the kingdom that Gwynlòc alone cannot fill. Much of the goods produced in Buinn Llèith are sold to the Republic of Oosterdam at subsidised rates. Though as yet unrecognised for their contributions by the crown, Buinn Llèith will continue to quietly support the advancement of the sciences and the arts in the kingdom."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Dunkirk Marches\nCapital: Dunkirk\nLeader(s): Margrave Conrad Selwyn\n\nEstablished 24 years ago, the Dunkirk Marches are the newest official region of Ao Mārama. Current authority Margrave Selwyn was reappointed from his ancestral home to the county of Dunkirk, tasked with overseeing the attempts to mediate border disputes between the neighbouring regions of Buinn Llèith and Alberton. To this day the Marches remain a highly regimented military region under the governing of Buinn Llèith. While their constant diplomatic work serves to alleviate tensions between the two neighbouring provinces, Dunkirk must also manage the growing undercurrent of civil unrest and the locals distaste for this enforced militant rule."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Republic of Oosterdam\nCapital: Oosterdam\nLeader(s): High Priestess Siani\n\nIt is hardly surprising that the Temple of the Artist is one of the most visually stunning buildings in all of Ao Mārama, given it resides in the very centre of the Republic of Oosterdam. A vision of the artist come to life, Oosterdam is the place where great ideas are born. Whether you are a student at the Van der Kaag Academy studying science, astronomy, politics, history, philosophy, or an artist pursuing higher truths through poetry, painting, sculpting, music; in Oosterdam, your talents will shine. Many visitors to the city's libraries, cafes, and boutiques come to appreciate the people's passion for democracy, wisdom, and artistic expression."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: The Cerulean Isles\nCapital: Whitianga\nLeader(s): The Council of Four Waters\n\nOnce a quiet tropical archipelago, the Cerulean Isle hosts many visitors from the Crownlands since its absorption into the Kingdom of Alba. The relaxed atmosphere and low population density make it a popular resort destination, where one can enjoy the fresh fruits and shellfish, walk the white sandy beaches, or learn to dance with flaming poi at the monthly fire festivals."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Gwynlòc\nCapital: Dannevirke\nLeader(s): Duke Henry de Ruyter\n\nMany consider Gwynlòc to be the beating heart of Ao Mārama. Known for its thriving agriculture and sustainable logging/woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Umbria\nCapital: Varese\nLeader(s): Countess Alexandria Monteluca\n\nIf you desire the very best in life, you will find it in Umbria. Grander by far than any other region (save perhaps the castle proper in Albany), Umbria is known for its lavish beauty and opulence. Stroll through the vineyards and olive groves, relax at the theatre, let the seamstresses and embroiderers make you into a piece of walking art. Umbria is home to the wealthy and successful, though there is never a shortage of work if you are a musician or poet (willing to sell out for coin). Perhaps the maids and cooks are sneered at from time to time, but at least they get to admire the nobility's riches even if they cannot make much coin themselves./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Province: Westwatch\nCapital: Old Man's Barrow\nLeader(s): Baron Hugo Reyes\n\nThese days, Westwatch feels all but dead and gone. Locals might tell you of their heroic youth, conscripted to the military to fight for the King, or valiant battles fighting dragons of old. In an age where these outpost towns have long since served their purpose, the only real draw in Westwatch is the military training school. Climbing the Devil's Staircase will bring you to the halls of The Haast Auxiliary. Specialising in heavy armour and shields, the School of Defense has a friendly rivalry with the great weapons masters of the School of Offence (ho do not hesitate to claim they are the superior school). Racked by constant earthquakes and a general disdain for Umbrian saps, Westwatch is a welcome place for people of few words and decisive action./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Region: Anierin Forest\n\nWhen stepping into the Anierin Forest, all sounds of civilisation are immediately lost to a calm, peaceful hush - though you'd better have a good reason for entering the forest if you are not an elf. A sanctuary for elvenkind following years of bloodshed at human hands, the Anierin Forest is a wonder of dappled sunlight, clear springs, and soft glades. You might pass an elven settlement without even seeing it - but know that though you did not see them, they certainly saw you./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Region: Te Manawa Whenua\n\nBlack woods and flooded marsh make up the landscape of Te Manawa Whenua. Difficult to traverse unless you know which paths to take; unwitting travelers may be left sinking in the mud... though some may find a guide if the atua look kindly upon them. Home to the gargantuan wolves and birds of prey that fight alongside the Fens, Te Manawa Whenua is a haven for some, and a danger to many./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Region: The Slumbering Grave\n\nHot, dry, and barren, the Slumbering Grave lies forgotten in the northern reaches of Ao Mārama. The last Albans to traverse these desert wastes in large scores were the Scorched Guard - a branch of the royal army who sought to eradicate a scourge of dragons from the continent. Those who follow the waypoint markers carved into the bones of these fallen beasts might be lucky enough to find the monastry where it is rumoured the Sun Soul monks live and study, though not many brave the journey, and fewer still survive it./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Region: Greymouth \n\nGreymouth was once an up-and-coming town built around a river port, facilitating trade between Gwynlòc and the coast. Unfortunately, Greymouth and the surrounding mountain areas have been seized by the Cursed Ones. Now only harpy dens and nests of bleached white bone provide homes to Greymouth's inhabitants./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Regions",
+    "Lore": "Region: Lothan Isle\n\nLong abandoned, Lothan Isle was once home to a great elven scholar whose study of runecraft led to a great many advancements in magic-aided building construction. As their manor expanded and elven holy sites were established for magical study, many small villages were set up on this island to aid this elven scholar in their research. Today, the manor lies in ruins, the villages abandoned, the humble orchards and fields left to spoil. Only whispers remain of some unspeakable horror that saw an entire island silenced./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Races",
+    "Lore": "Human\nLanguages: Alban, Te Reo\n\nHumans first set foot on Ao Mārama approximately 800 years ago. While they were not the first sentient race to settle on the continent, they were the first to begin building cities of immense scale and longevity, and are now the dominant race in every region. Denizens of these cities began to cultivate the land, and over time pursued more large scale industry, at times putting them at odds with elven kind.\n\n Some humans however, opted instead to join their elven neighbours in their nomadic lifestyle, journeying across the continent to visit points of great cultural significance for those who venerate the natural world.\n\nAs time progressed and humans began to outnumber the elven pilgrims, their paths began to deviate to travel through human cities. At present these nomadic bands of travelers, known as the Fens, are largely human in number but will happily take on new wanderers regardless of race or background, as long as they follow their ideals./woodworking industry, Gwynlòc is a trade hub that produces a steady supply of raw goods for the mainland. Putting family first, Gwyns tend to value honesty, integrity, hard work, and generosity. With storytellers sharing oral histories of the land, and talented hunters and craftsmen, their harvest festivals are not to be missed."
+  },
+  {
+    "Category": "Races",
+    "Lore": "Elf\nLanguages: Elvish, Alban\n\nThe Elves are a reclusive people; with little interest in the affairs of man, they largely keep to the deep reaches of Aneirin Forest. Where in the past, pilgrimages had drawn them to visit the many natural wonders of Ao Mārama, tensions began to arise around the rapid expansion of city and industry. Following the territorial conflicts known as the Elven Wars, elves have withdrawn from human society almost entirely.\n\nAs an inherently magical people, their lifespan greatly surpasses that of the average human, and they have a number of distinct physical characteristics, such as their delicately pointed ears and incisors, and prominent ring of green around their irises. As they mature into adulthood, this band takes on a distinctive metallic sheen of either gold, for sun-blood elves, or silver, for moon-blood elves. "
+  },
+  {
+    "Category": "Races",
+    "Lore": "Sun-blood elves are typically characterised by golden undertones to their skin, ranging from white gold to deep brown, and warm toned hair including reds, warm browns, or golden blondes. Their veins have a green toned appearance beneath the skin. Sun-blood elves are adept in the elemental magics of fire and earth.\n\nMoon-blood elves, by contrast, have a silver note to their skin, and are typically paler than their sun-blood brothers, with veins that run with purple or blue shades. They have hair of silver blonde, cool brown, or blue black. Their elemental magic typically manifests as clear water and cool wind."
+  },
+  {
+    "Category": "Races",
+    "Lore": "When elf is nears the end of their lifespan, rather than showing signs of age as a human might, their body begins to take on an opaque quality, and their features distort and shift as if being viewed through a thick film or underwater. Slowly the metallic hue\nbegins to take over the whole of the eyes, as their vision shifts away from the earthly plane and towards the celestial heavens. Only once an elf is completely blind to the earthy world will their body fade away and follow their vision into the ether."
+  },
+  {
+    "Category": "Races",
+    "Lore": "Cursed One\nLanguages: Te Kore\n\nOriginally a faction of the Fens, the Cursed Ones were ostracised for their failure to uphold the Fen's tenets. The Fens have a deep respect for the land and the atua who preside over it. They value the lives of the beasts they hunt, the lifeblood of the forests they inhabit, the value of the natural resources they use. Straying from this ideology, the Cursed Ones in their vanity took to slaughter and destruction as a means of proving themselves unmatched hunters and warriors. Their continued pride, arrogance, and cruelty eventually saw them cursed by the atua they had once upheld as gods. Now brutally severed from their collective roots, the cursed ones have largely taken up residence in the mountains, staking much of the territory between Anvil and Alberton as their own."
+  },
+  {
+    "Category": "Races",
+    "Lore": "Colloquially known as \"Harpies\", the Cursed Ones can take on many different forms - the atua's curse twisting them into a cruel reflection of the beasts they claim dominance over. This curse may manifest as feathers, beaks, claws, horns, scales, tails, typically some combination of either avian or reptilian aspects. Depending on what bestial aspect is manifested in this curse, an individual is judged accordingly - Cursed Ones are divided in terms of social hierarchy. Those with fully human heads and bestial wings are considered amongst the 'nobility', while the 'feral' members of a harpy den are generally treated as slaves or considered expendable due to their grotesque appearances and low intellect. The 'commoners' sit somewhere in between - while they might not be as beautiful as their winged brethren, their bestial aspects are often valuable in combat, such as clawed talons or enhanced senses."
+  },
+  {
+    "Category": "Races",
+    "Lore": "Cursed Ones tend to value strength, cunning, and beauty, and while some are bent on exacting revenge on the more human races, others see their curse as a blessing, demanding the worship of those they deem inferior."
+  },
+  {
+    "Category": "Races",
+    "Lore": "Half-Elf\nLanguages: Alban, Te Reo, Elvish\n\nHalf Elves appear less ethereal than their Elven counterparts. While they share their pointed ears and incisors, and slender builds, they lack the distinct coloured hue in their eyes and innate affinity to elemental magic. As such they are closer to humans than to elves.\n\nThey do not necessarily worship the sun, moon, and stars, as the celestial religion of the elves dictates. They may instead choose to follow one of the human religions, such as that of the Five, or none at all. As they are generally ostracised by their two genealogical counterparts, half-elves tend to seek places where they might find acceptance and kinsmanship. Beyond religion, they also look to guilds and factions, trades, university societies, and many fall into the nomadic lifestyle of the Fens."
+  },
+  {
+    "Category": "Religion",
+    "Lore": "The Pantheon of Five is the largest orthodox religion in the Kingdom of Alba - though they are \"human gods\", humans, dwarves, halflings, and half-elves all number among their faithful. With five gods who each command equal power and awe, they have ties to many domains (some of which overlap)."
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Mara - The Mother\n\nDomains: Harvest, agriculture, fertility, home, healing, forgiveness, love, beauty, peace\nSeason: Autumn\nColours: White, gold"
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Lumia - The Knight\n\nDomains: Darkness, shadow, thieves, justice, death, balance, wealth, time, order\nSeason: Winter\nColours: Black, silver"
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Faolán - The Wild\n\nDomains: Luck, travellers, freedom, hunters, animals/beasts, healing, the chaos of the world, the woods and skies\nSeason: Spring\nColours: Green"
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Celaena - The Artist\n\nDomains: The mind, arts, music, knowledge, growth, prophecy, wisdom, deep water, deception, truth and shades of grey\nSeason: Winter becoming Spring\nColours: Blue, grey"
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Illium - The Fury\n\nDomains: Festivals, drunkeness, fire, war, bloodshed, violence, chance, change, progress, rebellion\nSeason: Summer\nColours: Red"
+  },
+  {
+    "Category": "Religion",
+    "Lore": "The Elven Kings of the Celestial Heavens\n\nAn ancient people looking to the Sun, Moon, and Stars, the Elves worship gods of the Celestial Heavens. The Elves believe themselves descended from Four Kings and Brothers; Tidus, Comet, Solas, and Oberon. The elements that sang in the souls of these Sun and Moon Kings are what gave rise to the magic in the elven bloodlines that still exist today - from Tidus and Oberon came water and wind of the Moon-blood elves; from Comet and Solas, the fire and earth of the Sun-blood elves."
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Atua - Spirits of the Natural World\n\nOn the one hand, we have Capital G \"Gods\", with names, with domains, with stories and personalities. Depending on whether or not you are speaking Alban or Te Reo, you might refer to these gods as atua.\n\nOn the other hand, not all atua are as easily defined as the Pantheon of Five. Others are merely the nameless, shapeless, supernatural life force of the land. The word translates to Alban roughly as \"god\", but this can mean many things in a spiritual or magical sense.\n\nHave you met with spirit of Fen ancestors that roam the land protecting the flora and fauna? Those were atua.\n\nHave you met a tiny wisp, an elemental sprite, a being that had a semi-physical form and caused a flower to bloom before your very eyes? That was an atua.\n\nHave you summoned a demonic creature and invoked a pact that would grant you a boon at a terrible cost? That was an atua."
+  },
+  {
+    "Category": "Religion",
+    "Lore": "Have you sat beneath the stars in quiet meditation and felt the sense of an eternal presense looking back? That was the atua.\n\nThey may be single or many; invisible or corporeal; good-natured, cruel, or indifferent; if it gives you the otherworldy heebie-jeebies, its probably an atua!"
+  },
+  {
     "Category": "Magic",
-    "Lore": "In the distant land of Aotearoa, a realm of breathtaking beauty and untamed wilderness, elemental magic is woven into the very fabric of existence. The nations of this mystical world, each aligned with one of the five great elements - Fire, Water, Air, Earth, and the enigmatic Spirit - coexist, albeit tenuously, within a delicate balance of power.\n"
-  },
-  {
-    "Category": "Magic and Culture",
-    "Lore": "The native Maori tribes hold dominion over the lands of Aotearoa, harnessing the force of Earth magic to revere the ancient and majestic land. Their deeply spiritual culture cherishes the balance and harmony of nature, and they wield their Earth magic through respect and understanding, passing their wisdom down through generations of Earthspeakers. Eager to preserve their traditions, the Maori tribes can be fierce and stalwart in the defense of their ancestral homeland against any who would seek to tamper with the equilibrium they hold so dear.\n"
-  },
-  {
-    "Category": "Politics",
-    "Lore": "Foreign settlers have also estabished kingdoms in Aotearoa, each bringing their own elemental powers and political ambitions into this intricate landscape. Tensions simmer beneath the surface, as alliances form and unravel, and political intrigue tinges each decision like the touch of poison upon a blade.\n"
+    "Lore": "Mages come in many forms in the Kingdom of Albany, and not all magical practitioners are recognised as equal.\nThe study of the arcane arts has come under close scrutiny in recent years, and as the Order of the Magisterium grows in sheer size and power, magical studies have been subject to increasing restrictions and audits."
   },
   {
     "Category": "Magic",
-    "Lore": "In the coastal kingdom of Ngawhiti, Water mages navigate the treacherous seas and forge powerful naval fleets upon an unyielding tide of ambition. Their fluid power and cunning grant them mastery over waves and wind, positioning them as controlling forces within the unstable diplomacy of Aotearoa.\n"
+    "Lore": "Currently, young mages have a few options should they wish to improve their magic; If they are an elf, there is little to worry about. Due to their bloodlines, all elves manifest elemental magic from birth.\nSome time before they reach their 300th birthday, an elf will have undertaken lessons from both a sun-blooded and moon-blooded elven tutor, ensuring that they are able to show some degree of control over all four elements (though most tend to favour the elements their bloodline naturally manifests).\nSome elves continue their studies beyond strictly elemental magics - again, this study is attributed to elven sages and sorcerers who have shown mastery in these fields of study.\nA similar path is followed for young Fens. The Fens and the elves both have a deep respect for nature; much of their religion and ideaology was grown from the same roots."
   },
   {
     "Category": "Magic",
-    "Lore": "In the volcanic region of Hiawhiti, the searing flames of the Fire mages gleam like a beacon of temptation and fear in the hearts of their neighbors. With their passion burning as brightly as their magic, this fiery nation is as unpredictable and explosive as the lands from which they draw their intense power. A devout allegiance with the Fire Mages can either bring light to a land or consume it in ash.\n"
+    "Lore": "While not all Fens show the same innate arcane talent that the elves do (Fens being comprised of many varied races, after all), they will all have the opportunity to go on pilgrimages to sites of natural arcane importance.\nHere they stay for a time, studying and meditating on their magic. Often these sites act as a meeting point for Fen students and teachers to share their findings with one another. But what of those who do not live a secluded Elven or nomadic Fen lifestyle?\nFortunately, the Van der Kaag Academy has historically offered arcane studies as an optional part of its curriculum. The Academy is not exclusively a school for magic - it has three campuses and teaches a number of different subjects.\nAll appointed court mages of the Kingdom of Albany have undertaken the required arcane examinations and audits by the Academy (and many were students themselves)."
   },
   {
     "Category": "Magic",
-    "Lore": "The soaring mountains and sky-bound vistas of Aotearoa are home to the Air mages of Whaiora, who ride the wind and speak in whispers. Their secrets and their spells are carried in the breeze, granting them unparalleled influence and vision. As diplomats and spies, the Air Mages guard their hidden aeries as fiercely as they maintain their network of allies and confidants.\n"
+    "Lore": "Historically, a mage who has been audited by the academy and deemed a skilled practitioner of the arcane arts has then been able to take on their own students for tutoring in their own respective regions (provided they too come in for periodic examinations).\nHowever in more recent years, this practice has been quietly discouraged. It is unclear whether the whispers that the Magisterium are looking to have all the mages in the continent come under their teaching are simply malicious rumours or something more.\nPerhaps the most extreme measures of magical tutelage come from the military in the Crownlands. Though rare in times of peace, mages who show signs of promise at a young age may be conscripted into the Arcane branch of the military.\nLittle is known of their teaching, but the results tend to speak for themselves."
   },
   {
     "Category": "Magic",
-    "Lore": "Amidst the conflict between the more tangible elements, the Spirit mages of Aotearoa maintain an enigmatic presence in the shadows, intertwined with legend and myth. Their power reaches beyond the material world and encompasses the souls of the living and the dead. From the quiet grove of the sacred Kowhai trees to the shadowy halls of the ghostly Night Marchers, the enigmatic Spirit mages play a secretive but crucial role in shaping the fate of the land.\n"
-  },
-  {
-    "Category": "Magic",
-    "Lore": "As the threads of political intrigue tighten around the peoples of Aotearoa, and the powers of magic whirl in a storm of potential and desire, the future of this extraordinary realm rests in the hands of the brave heroes who dare to keep the world from descending into chaos. In this place of wonder and mystery, elemental magic is not only a force to be wielded, but also a story to be told and a legacy waiting to be unveiled.\n"
+    "Lore": "These military mages, and those who have been trained and audited by the Academy are the only mages considered of real worth in the Kingdom of Albany.\nIn short, those who want to study magic legitimately must do so via the Academy. \nStudents at the Academy must pass their examinations in order to be recognised as a practitioner of the arcane arts.\nThose who cannot meet the Academy's standard are discouraged from practicing magic of any sort."
   }
 ]

@@ -17,6 +17,7 @@ client = weaviate.Client(
 # # delete class "YourClassName" - THIS WILL DELETE ALL DATA IN THIS CLASS
 # client.schema.delete_class("Question")  # Replace with your class name - e.g. "Question"
 
+# ===== create schema =====
 class_obj = {
     "class": "Lore",
     "vectorizer": "text2vec-openai"  # Or "text2vec-cohere" or "text2vec-huggingface"
@@ -26,7 +27,7 @@ client.schema.create_class(class_obj)
 
 # ===== import data =====
 # Load data and Configure a batch process
-with open('world/test.json', mode='r') as file, client.batch as batch:
+with open('world/test.json', mode='r', encoding='utf-8') as file, client.batch as batch:
     data = json.load(file)
     print(data)
 
@@ -46,7 +47,7 @@ with open('world/test.json', mode='r') as file, client.batch as batch:
 print(client.query.aggregate('Lore').with_meta_count().do())
 
 
-nearText = {"concepts": ["Hiawhiti"]}
+nearText = {"concepts": ["Magical Study"]}
 
 result = (
     client.query

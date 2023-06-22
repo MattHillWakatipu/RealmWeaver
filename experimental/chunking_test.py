@@ -1,6 +1,6 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
 
-with open('world/the_blade_itself.txt', 'r', encoding='utf8') as file:
+with open('world/background.txt', 'r', encoding='utf8') as file:
     background = file.read()
 
     text_splitter = RecursiveCharacterTextSplitter(
