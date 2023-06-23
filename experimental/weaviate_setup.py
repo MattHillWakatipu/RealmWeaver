@@ -14,8 +14,8 @@ client = weaviate.Client(
     }
 )
 
-# # delete class "YourClassName" - THIS WILL DELETE ALL DATA IN THIS CLASS
-# client.schema.delete_class("Question")  # Replace with your class name - e.g. "Question"
+# delete class "YourClassName" - THIS WILL DELETE ALL DATA IN THIS CLASS
+client.schema.delete_class("Lore")  # Replace with your class name - e.g. "Question"
 
 # ===== create schema =====
 class_obj = {
@@ -34,7 +34,7 @@ with open('world/test.json', mode='r', encoding='utf-8') as file, client.batch a
     batch.batch_size = 100
     # Batch import all Questions
     for i, d in enumerate(data):
-        print(f"importing question: {i + 1}")
+        print(f"importing lore: {i + 1}")
 
         properties = {
             "lore": d["Lore"],

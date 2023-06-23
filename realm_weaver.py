@@ -9,7 +9,7 @@ COMPLETION_MODEL = 'gpt-4'
 EMBEDDING_MODEL = 'text-embedding-ada-002'
 
 
-def fetch_related(weaviate_client, user_string, n=2):
+def fetch_related(weaviate_client, user_string, n=4):
     """
     Fetch N-nearest lore snippets to the input user string
 
@@ -35,7 +35,7 @@ def fetch_related(weaviate_client, user_string, n=2):
     # Extract information from response and construct result
     result = ''
     for i in range(n):
-        result += response['data']['Get']['Lore'][i]['lore'] + '\n'
+        result += '* ' + response['data']['Get']['Lore'][i]['lore'] + '\n'
 
     logging.debug(f'{n} closest items retrieved from Weaviate:\n{result}')
     return result
@@ -79,7 +79,7 @@ def chunk_response(response):
     """
     # TODO work out optimal chunk size
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=2048,
+        chunk_size=1024,
         chunk_overlap=20
     )
 
@@ -90,6 +90,20 @@ def chunk_response(response):
 
     logging.info(f'Response split into {len(texts)} chunks.')
     return texts
+
+
+def confirm_save():
+    # FIXME this is real ugly and will break the web version
+    user_input = input("Do you want to save? (Y/N): ")
+
+    if user_input.lower() == "y" or user_input.lower() == 'yes':
+        logging.info('Saving data...')
+        return True
+    elif user_input.lower() == "n" or user_input.lower() == 'no':
+        return False
+    else:
+        logging.info('Invalid input.')
+        return False
 
 
 def store_response(weaviate_client, response):
@@ -175,19 +189,19 @@ def main(user_string='Create an important historical event for me.'):
 
     logging.info(f'User input string: {user_string}')
 
-    instructions = 'Instructions:\n' \
-                   'Using the following background as either example or ' \
-                   'by directly linking to it, complete the following instruction.\n' \
-                   f'{user_string}\n' \
-                   '************\n'
-
     # Get related context based on the users input string
     context = 'Background:\n' \
               f'{fetch_related(weaviate_client, user_string)}' \
               f'************\n'
 
+    instructions = 'Instructions:\n' \
+                   'Using the background as either example or ' \
+                   'by directly linking to it, complete the following instruction.\n' \
+                   f'{user_string}\n' \
+                   '************\n'
+
     # Construct the final query based on the Header, Instructions and Weaviate related context
-    query = header + instructions + context
+    query = header + context + instructions
     logging.debug(f'Full query to GPT-4:\n{query}')
 
     # Query the model
@@ -204,8 +218,9 @@ def main(user_string='Create an important historical event for me.'):
     # TODO Send response to user, and get user input of whether to save or not
     print(f'Response: {response}')
 
-    # Store the response in Weaviate cluster
-    store_response(weaviate_client, response)
+    if confirm_save():
+        # Store the response in Weaviate cluster
+        store_response(weaviate_client, response)
 
     return response
 
