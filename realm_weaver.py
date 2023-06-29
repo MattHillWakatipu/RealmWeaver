@@ -70,28 +70,6 @@ def construct_background_prompt(user_string):
     return background_info
 
 
-def chunk_response(response):
-    """
-    TODO
-
-    :param response: TODO
-    :return: TODO
-    """
-    # TODO work out optimal chunk size
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1024,
-        chunk_overlap=20
-    )
-
-    # Split text into chunks
-    logging.info('Chunking response...')
-    texts = text_splitter.split_text(response)
-    logging.debug(f'Split text:\n {texts}')
-
-    logging.info(f'Response split into {len(texts)} chunks.')
-    return texts
-
-
 def confirm_save():
     # FIXME this is real ugly and will break the web version
     user_input = input("Do you want to save? (Y/N): ")
@@ -114,30 +92,21 @@ def store_response(weaviate_client, response):
     :param response:    The Model response to store.
     :return:            None.
     """
-    # Break the response into chunks
-    chunked = chunk_response(response)
-
-    # Format each chunk and store in a list
-    formatted = []
-    for count, chunk in enumerate(chunked, start=1):
-        formatted.append(format_response(chunk, count))
-    logging.debug(f'Formatted chunks:\n{formatted}')
+    # Format the response
+    formatted = format_response(response)
 
     # Store in Weaviate Cluster
-    logging.info('Storing chunks in Weaviate Cluster...')
+    logging.info('Storing response in Weaviate Cluster...')
     with weaviate_client.batch as batch:
-        for count, item in enumerate(formatted, start=1):
-            batch.add_data_object(item, 'Lore')
-            logging.info(f'Successfully stored chunk {count}')
-    logging.info('Successfully stored all chunks in Weaviate Cluster.')
+        batch.add_data_object(formatted, 'Lore')
+        logging.info('Successfully stored response in Weaviate Cluster.')
 
 
-def format_response(lore, count):
+def format_response(lore):
     """
     Format a Lore object, assigns a category for the lore with GPT-4.
 
     :param lore:    The input lore snippet.
-    :param count:   The chunk number.
     :return:        A lore snippet formatted as a dictionary, ready to be saved to Weaviate.
     """
     # Query to categorize the lore snippet
@@ -145,7 +114,7 @@ def format_response(lore, count):
     query = 'Assign a Category to this Worldbuilding text: eg.(Cities, Regions, Culture etc.)\n' + lore
 
     # Query the model
-    logging.info(f'Assigning a category to chunk {count}...')
+    logging.info(f'Assigning a category to response...')
     completion = openai.ChatCompletion.create(
         model=COMPLETION_MODEL,
         messages=[
@@ -153,7 +122,7 @@ def format_response(lore, count):
         ]
     )
     category = completion.choices[0].message.content
-    logging.info(f'Category assigned to chunk {count}.')
+    logging.info(f'Category assigned to response.')
     logging.info(f'Category: {category}')
 
     # Formatted as a Dictionary to store
