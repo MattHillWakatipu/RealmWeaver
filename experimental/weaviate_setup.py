@@ -27,7 +27,7 @@ client.schema.create_class(class_obj)
 
 # ===== import data =====
 # Load data and Configure a batch process
-with open('world/test.json', mode='r', encoding='utf-8') as file, client.batch as batch:
+with open('world/world.json', mode='r', encoding='utf-8') as file, client.batch as batch:
     data = json.load(file)
     print(data)
 
