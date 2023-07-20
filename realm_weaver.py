@@ -13,9 +13,9 @@ def fetch_related(weaviate_client, user_string, n=4):
     """
     Fetch N-nearest lore snippets to the input user string
 
-    :param weaviate_client:
+    :param weaviate_client: The Weaviate client.
     :param user_string:     The user's input string.
-    :param n:               The number of lore snippets to add, defaults to 2.
+    :param n:               The number of lore snippets to add, defaults to 4.
     :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
     """
     # Construct a list of topics to enhance linking
