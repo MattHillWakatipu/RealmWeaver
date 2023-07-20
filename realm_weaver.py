@@ -141,21 +141,15 @@ def main(user_string='Create an important historical event for me.'):
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s - %(levelname)s - %(message)s')
 
-    # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
-    #  Doesn't occur in weaviate_setup.py, could be because that is a script with no function calls but not sure.
-    #  Doesn't seem very critical anyway as this will only be done once.
+    # Connect to vector database
     weaviate_client = create_weaviate_client()
 
     # The worldbuilding header
-    # TODO this should be defined somewhere during an initialisation process and should probably not change per project.
     header = 'Background:\n' \
              'I am doing some worldbuilding for a fantasy novel.\n' \
              'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
              '************\n'
     logging.debug(f'Worldbuilding header:\n{header}')
-
-    # TODO dynamic input from user
-
     logging.info(f'User input string: {user_string}')
 
     # Get related context based on the users input string
@@ -163,6 +157,7 @@ def main(user_string='Create an important historical event for me.'):
               f'{fetch_related(weaviate_client, user_string)}' \
               f'************\n'
 
+    # Create instructions
     instructions = 'Instructions:\n' \
                    'Using the background as either example or ' \
                    'by directly linking to it, complete the following instruction.\n' \
@@ -183,8 +178,6 @@ def main(user_string='Create an important historical event for me.'):
     )
     logging.info(f'Response received from GPT-4.')
     response = completion.choices[0].message.content
-
-    # TODO Send response to user, and get user input of whether to save or not
     print(f'Response: {response}')
 
     if confirm_save():
