@@ -47,7 +47,7 @@ with open('world/world.json', mode='r', encoding='utf-8') as file, client.batch 
 print(client.query.aggregate('Lore').with_meta_count().do())
 
 
-nearText = {"concepts": ["Magical Study"]}
+nearText = {"concepts": ["Cybernetics"]}
 
 result = (
     client.query

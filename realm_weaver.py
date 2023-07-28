@@ -133,7 +133,7 @@ def format_response(lore):
     return formatted
 
 
-def main(user_string='Create an important historical event for me.'):
+def main(user_string='Create a university department'):
     load_dotenv()
     openai.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -145,10 +145,10 @@ def main(user_string='Create an important historical event for me.'):
     weaviate_client = create_weaviate_client()
 
     # The worldbuilding header
-    header = 'Background:\n' \
-             'I am doing some worldbuilding for a fantasy novel.\n' \
-             'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
-             '************\n'
+    header = "Background:\n" \
+             "I am doing some worldbuilding for a cyberpunk setting.\n" \
+             "The setting is Victoria University of Wellington, in 2073, where dissonant notes of old tradition and new technology create a tension that fills the air with a palpable undercurrent of change and progress. Striking a balance between ecological preservation and technological revolution, Victoria University is a mesmerizing melting pot of bioengineered flora, AI-driven facilities, and passionate, forward-thinking inhabitants.\n" \
+             "************\n"
     logging.debug(f'Worldbuilding header:\n{header}')
     logging.info(f'User input string: {user_string}')
 
@@ -180,9 +180,8 @@ def main(user_string='Create an important historical event for me.'):
     response = completion.choices[0].message.content
     print(f'Response: {response}')
 
-    if confirm_save():
-        # Store the response in Weaviate cluster
-        store_response(weaviate_client, response)
+    # Store the response in Weaviate cluster
+    store_response(weaviate_client, response)
 
     return response
 
