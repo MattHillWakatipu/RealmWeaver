@@ -3,16 +3,6 @@ body {
     margin:40px;
 }
 
-h1 {
-    color: #88D8C0;
-    font-family: Inter;
-    font-size: 1.2rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-
 p {    
     grid-area: content;
     color: rgba(237, 237, 237, 0.70);
