@@ -3,10 +3,29 @@ body {
     margin:40px;
 }
 
-p {    
+h1 {
+    color: #88D8C0;
+    font-family: Inter,sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+msg-text {
     grid-area: content;
     color: rgba(237, 237, 237, 0.70);
-    font-family: IBM Plex Sans;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+p {
+    grid-area: content;
+    color: rgba(237, 237, 237, 0.70);
+    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -70,7 +89,7 @@ p {
     background: #2B2C33;
     grid-area: content;
     color: rgba(237, 237, 237, 0.70);
-    font-family: IBM Plex Sans;
+    font-family: Inter;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -113,7 +132,7 @@ p {
     border: 1px solid #515467;
     background: #393B48;
     color: #EDEDED;
-    font-family: IBM Plex Sans;
+    font-family: Inter;
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
@@ -158,3 +177,4 @@ br {
     max-width: 600px;
     word-wrap: break-word; 
 }
+
