@@ -13,9 +13,9 @@ def fetch_related(weaviate_client, user_string, n=4):
     """
     Fetch N-nearest lore snippets to the input user string
 
-    :param weaviate_client:
+    :param weaviate_client: The Weaviate client.
     :param user_string:     The user's input string.
-    :param n:               The number of lore snippets to add, defaults to 2.
+    :param n:               The number of lore snippets to add, defaults to 4.
     :return:                A string containing the related context for the N-nearest lore snippets in Weaviate.
     """
     # Construct a list of topics to enhance linking
@@ -133,7 +133,7 @@ def format_response(lore):
     return formatted
 
 
-def main(user_string='Create an important historical event for me.'):
+def main(user_string='Create a university department'):
     load_dotenv()
     openai.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -141,21 +141,15 @@ def main(user_string='Create an important historical event for me.'):
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s - %(levelname)s - %(message)s')
 
-    # FIXME Socket not closing for whatever reason, doesn't seem to matter if this is global or within a function.
-    #  Doesn't occur in weaviate_setup.py, could be because that is a script with no function calls but not sure.
-    #  Doesn't seem very critical anyway as this will only be done once.
+    # Connect to vector database
     weaviate_client = create_weaviate_client()
 
     # The worldbuilding header
-    # TODO this should be defined somewhere during an initialisation process and should probably not change per project.
-    header = 'Background:\n' \
-             'I am doing some worldbuilding for a fantasy novel.\n' \
-             'The setting is inspired by New Zealand, featuring elemental magic and political intrigue.\n' \
-             '************\n'
+    header = "Background:\n" \
+             "I am doing some worldbuilding for a cyberpunk setting.\n" \
+             "The setting is Victoria University of Wellington, in 2073, where dissonant notes of old tradition and new technology create a tension that fills the air with a palpable undercurrent of change and progress. Striking a balance between ecological preservation and technological revolution, Victoria University is a mesmerizing melting pot of bioengineered flora, AI-driven facilities, and passionate, forward-thinking inhabitants.\n" \
+             "************\n"
     logging.debug(f'Worldbuilding header:\n{header}')
-
-    # TODO dynamic input from user
-
     logging.info(f'User input string: {user_string}')
 
     # Get related context based on the users input string
@@ -163,6 +157,7 @@ def main(user_string='Create an important historical event for me.'):
               f'{fetch_related(weaviate_client, user_string)}' \
               f'************\n'
 
+    # Create instructions
     instructions = 'Instructions:\n' \
                    'Using the background as either example or ' \
                    'by directly linking to it, complete the following instruction.\n' \
@@ -183,13 +178,10 @@ def main(user_string='Create an important historical event for me.'):
     )
     logging.info(f'Response received from GPT-4.')
     response = completion.choices[0].message.content
-
-    # TODO Send response to user, and get user input of whether to save or not
     print(f'Response: {response}')
 
-    if confirm_save():
-        # Store the response in Weaviate cluster
-        store_response(weaviate_client, response)
+    # Store the response in Weaviate cluster
+    store_response(weaviate_client, response)
 
     return response
 
